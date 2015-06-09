@@ -5,6 +5,12 @@
   <% end %>
 </p>
 <br />
+<p>
+  <% if @article.image.exists? %>
+    <%= image_tag @article.image.url %>
+  <% end %>
+</p>
+<br />
 <p><%= @article.body %></p>
 <br />
 <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Really delete the article?"} %> | 
