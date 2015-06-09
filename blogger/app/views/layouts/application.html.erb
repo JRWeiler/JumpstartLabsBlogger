@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+ 
 <head>
   <title>Blogger</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -10,6 +11,17 @@
   <p class="flash">
     <%= flash.notice %>
   </p>
+  <div id="side-nav">
+    <ul>
+      <li><%= link_to "Articles", articles_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to "Authors", authors_path %></li>
+        <li><%= link_to "New Author", new_author_path %></li>
+        <li><%= link_to 'New Article', new_article_path %></li>
+      <%end%>
+    </ul>
+  </div>
+  
   <div id="container">
     <div id="content">
       <%= yield %>

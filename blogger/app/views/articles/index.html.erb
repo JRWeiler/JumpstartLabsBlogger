@@ -1,15 +1,19 @@
 <h1>All Articles</h1>
-
+<h2>Most Popular</h2>
+<% @articles_top_three.each do |article|  %>
+  <%= link_to "#{article.title}", article_path(article) %> | 
+<%end%>
+<br />
+<br />
+<br />
 <ul id="articles">
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article_path(article), class: 'article_title' %>
-    </li>
-  <% end %>
+  <% @article_months.sort.each do |pub, articles| %>
+        <h2><%= pub.strftime('%B') %></h2>
+        <% for article in articles %>
+          <li><%= link_to "#{article.title}", article_path(article) %></li>
+        <% end %>
+      <% end %>
 </ul>
 <br />
 <%= link_to 'View article Tags', tags_path %>
 
-<% if logged_in? %>
-<%= link_to 'Create New Article', new_article_path, class: 'new_article' %>
-<% end %>

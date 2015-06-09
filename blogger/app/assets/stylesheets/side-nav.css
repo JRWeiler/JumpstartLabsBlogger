@@ -1,0 +1,15 @@
+#side-nav {
+  font-family:"Yanone Kaffeesatz";
+  float: left;
+}
+
+#side-nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 12pt;
+}
+
+#right-nav{
+  float: right;
+  font-family:"Yanone Kaffeesatz";
+}
